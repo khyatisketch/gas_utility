@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Form</title>
+    <link rel="stylesheet" href="../static/create_request.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="container">
+        <div class="curved-shape"></div>
+        <div class="curved-shape2"></div>
+        <div class="form-box Request">
+            <h2>Request Form</h2>
+            <form method="POST" enctype="multipart/form-data" action="/submit-form/">
+                <div class="input-box">
+                    {% csrf_token %}
+                    <i class='bx bxs-dock-top'></i>
+                    <label for="type">Type:</label>
+                    <select name="type" id="type">
+                        <option value="repair">Repair</option>
+                        <option value="billingIssue">Billing Issue</option>
+                        <option value="newConnection">New Connection</option>
+                        <option value="meterReading">Meter Reading</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <input type="text" name="request_type" required><br>
+                </div>
+                <div class="input-box">
+                    <i class='bx bxs-detail'></i>
+                    <label>Details:</label>
+                    <textarea name="details" required></textarea><br>
+                </div>
+                <div class="input-box">
+                    <i class='bx bxs-pin'></i>
+                    <label>Attachment:</label>
+                    <input type="file" name="attachment"><br>
+                </div>
+                <div class="input-box">
+                    <button class="btn" type="submit">Submit Request</button>
+                </div>
+            </form>
+        </div>
+        <div class="info-content">
+            <h2>Hi! Welcome!</h2>
+            <p>Fill out your query</p>
+        </div>
+    </div>
+    <script src="../static/index.js"></script>
+</body>
+
+</html>
